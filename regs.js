@@ -19,7 +19,7 @@ function changeIR(){
         case 11: command.innerHTML = "JMP"; break;
         case 12: command.innerHTML = "ADDI"; break;
         case 13: command.innerHTML = "LOADI"; break;
-        case 14: command.innerHTML = "S TOREI"; break;
+        case 14: command.innerHTML = "STOREI"; break;
         default: command.innerHTML = "unkown"; break;
     }
     document.getElementById('reg-input').value = '';
