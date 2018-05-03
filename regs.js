@@ -4,7 +4,7 @@ function changeIR(){
     instruction.innerHTML = input; 
     let command = document.getElementById("ir-command");
 
-    switch(+input){
+    switch(+instruction.innerHTML){
         case 0: command.innerHTML = "STOP"; break;
         case 1: command.innerHTML = "LOAD"; break;
         case 2: command.innerHTML = "STORE"; break;
