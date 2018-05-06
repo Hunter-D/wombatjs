@@ -148,7 +148,7 @@ body{
     grid-column: 2/10;
     grid-row: 1;
     height: 100;
-    padding-right: 7.5px;
+    //padding-right: 7.5px;
     background-color: green;
 }
 
