@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
+<meta charset="UTF-8">
 <title>Wombat</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
-<script src="regs.js"></script>
 </head>
 <body>
 <button onclick="location.reload()">Reset</button>
@@ -11,36 +11,53 @@
     <div class="register-container">
         <div class="pc-container">
             PC<br>
-            <div id="pc-content">0000</div>
+            <div id="pc-content"></div>
         </div>
         <div class="ir-container">
             IR<br>
             <div id="ir-command">STOP</div>
-            <div id="ir-content">0000</div>
+            <div id="ir-content"></div>
         </div>
-        <div id="bus">0000</div>
+        <div id="bus"></div>
         <div class="acc-container">
-            <div id="acc-content">0000</div>
+            <div id="acc-content"></div>
             <br>ACC
         </div>
         <div class="mmu-container">
             <div class="mmu-content">
-            <div id="mar-content">0000</div>
+            <div id="mar-content"></div>
             <br>MAR
-            <div id="mdr-content">0000</div>
+            <div id="mdr-content"></div>
             <br>MDR
             </div>
             MMU
         </div>
+        <script src="regs.js"></script>
     </div>
-    <input id="reg-input" type="text" placeholder="Enter number" value="">
+    <!--<input id="reg-input" type="text" placeholder="Enter number" value="">
     <button onclick="changePC()">PC</button>
     <button onclick="changeIR()">IR</button>
     <button onclick="changeBUS()">BUS</button>
     <button onclick="changeACC()">ACC</button>
     <button onclick="changeMAR()">MAR</button>
     <button onclick="changeMDR()">MDR</button>
+    <input id="files" type="file">-->
+    <div class="mem-container">
+        <div id="mem-header">
+            <div id="mem-bit">0</div>
+            <div id="mem-bit">2</div>
+            <div id="mem-bit">4</div>
+            <div id="mem-bit">6</div>
+            <div id="mem-bit">8</div>
+            <div id="mem-bit">a</div>
+            <div id="mem-bit">c</div>
+            <div id="mem-bit">e</div>
+        </div>
+        <div id="mem-locs">
+        </div>
+    </div>
 </div>
-
+<input type="file" id="fileinput"/>
+<script src="mem.js"></script>
 </body>
 </html> 

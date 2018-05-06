@@ -1,3 +1,15 @@
+"use strict"
+
+var init0s = "0000";
+// Initializes registers to 0000 bits.
+(function initRegs(){
+    let regs = ['pc-content', 'ir-content', 'bus', 'acc-content',
+                'mar-content', 'mdr-content'];
+    regs.forEach(function(reg) {
+        document.getElementById(reg).innerHTML = init0s;
+    });
+})();
+
 function changeIR(){
     let instruction = document.getElementById("ir-content");
     let input = document.getElementById('reg-input').value;

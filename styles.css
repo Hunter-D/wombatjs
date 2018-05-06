@@ -1,21 +1,23 @@
 body{
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 1% auto auto;
 }
 
 .gui-container {
     display: block;
     grid-column: 2/3;
     background-color: red;
-    height: 500px;
+    width: 900px;
+    height: 600px;
 }
 
 .register-container{
     display: grid;
     grid-template-rows: repeat(10, 10%);
     grid-template-columns: repeat(3, 33.3%);
-    width: 50%;
-    height: 50%;
+    float: left;
+    width: 40%;
+    height: 40%;
     background-color: rgb(58, 58, 58);
     margin-top: 10px;
     margin-left: 10px;
@@ -69,8 +71,8 @@ body{
     grid-row: 4/6;
     border: 2px solid grey;
     margin-top: 10px;
-    margin-left: 20px;
     margin-bottom: 15px;
+    margin-left: 3.78%;
     padding-top: 2px;
     width: 90%;
     text-align: center;
@@ -124,6 +126,60 @@ body{
     display:inline-block;
     border: 1px solid black;
     width:80%;
+}
+
+.mem-container{
+    display: grid;
+    float: right;
+    grid-template-columns: repeat(9, 11.111%);
+    grid-template-rows: repeat(65, auto);
+    width: 50%;
+    height: 95%;
+    margin-top: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    background-color: black;
+    border: 1px solid lightslategrey;
+}
+
+#mem-header{
+    display: inline-grid;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-column: 2/10;
+    grid-row: 1;
+    height: 100;
+    padding-right: 7.5px;
+    background-color: green;
+}
+
+#mem-bit{
+    display: block;
+    color: white;
+    float: left;
+    padding-top: 10%;
+    border: 1px solid white;
+    text-align: center;
+}
+
+#mem-locs{
+    display: inline-grid;
+    grid-template-columns: repeat(9, 11.11111%);
+    grid-column: 1/10;
+    grid-row: 2/66;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: pink;
+
+}
+
+#mem-loc{
+    color: grey;
+    text-align: center;
+    border: 1px solid white;
+}
+
+#fileinput {
+    grid-column: 2;
 }
 
 input{
