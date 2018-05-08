@@ -56,8 +56,13 @@ function readFile(event){
     if(file){
         var reader = new FileReader();
         reader.onload = function (e) {
+            var contentArr = [];
             contents = e.target.result.split("\n");
-            loadMemory(contents);
+            contents.forEach(function(line){
+                if(line !== "")
+                    contentArr.push(line.split(' '));
+            });
+            loadMemory(contentArr);
         }
         reader.readAsText(file);
     } else {
@@ -72,32 +77,15 @@ function hasNumber(myString){
 function loadMemory(contents){
     var loc = 0;
     var mempos = 0;
-    for(var i = 0; i < contents.length; i++){
-        var cmd;
-        var arg;
-        contents[i] = contents[i].trim();
-        if(hasNumber(contents[i])){
-            /* This handles a line with an instruction then a number
-               as an argument */
-            cmd = contents[i].substr(0, contents[i].indexOf(' ')).toUpperCase();
-            arg = parseInt(contents[i].substr(contents[i].indexOf(' ')+1));
-            var ArgStr = arg.toString(16);
-            ArgStr = ArgStr.slice(ArgStr.length-3);
-
-            /*Writes instruction and argument to memory, keeping a bit
-              length of 4 */
-            toMem(mempos, "".concat(instructions.indexOf(cmd).toString(16), ArgStr.padStart(3, '0')));
-            mempos++;
-        } else if(contents[i] === '' || contents[i].charAt(0) === ';'){
-            console.log('comment or empty string')
-        } else {
-            /* If the line does not have a  number as an argument,
-               writes the instruction to memory */
-            cmd = contents[i].toUpperCase();
-            toMem(mempos, instructions.indexOf(cmd).toString(16).padEnd(4, "0"));
-            mempos++;
-        }
-    }
+    if(contents[0][0] === "@0")
+        contents.forEach(function(line){
+            for(var i = 0; i < line.length-1; i++){
+                toMem(mempos, line[i]);
+                mempos++;
+            }
+        });
+    else
+        alert("invalid file type");
 }
 
 
